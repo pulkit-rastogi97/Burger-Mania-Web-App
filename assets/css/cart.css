@@ -1,0 +1,82 @@
+body{
+    background-color: hsla(355, 88%, 61%, 0.911);
+}
+
+
+
+.mainTitle{
+	width: 100%;
+	text-align: center;
+}
+
+/* table, th, td {
+    border: 1px solid white;
+  } */
+
+th, td{
+    border: 1px solid white;
+    
+}
+td{
+    border-radius: 10px;
+}
+th{
+    color: antiquewhite;
+}
+
+table{
+    /* text-align: center;
+    margin-top: 5%;
+    margin-left: 8%;
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-color: aqua; */
+
+        text-align: center;
+        width: 50%;
+        float: left;
+        height: 100%;
+        margin-left: 5%;
+        margin-top: 8%;
+        color: beige;
+        font-size: medium;
+        font-weight: 500;
+        text-decoration: double;
+        background-color: #0066b2;
+        border: 3px solid aliceblue;
+        border-radius: 10px;;
+    
+}
+
+#total{
+    width: 30%;
+    float: right;
+    height: 100%;
+    margin-left: 10%;
+    margin-top: 7%;
+}
+
+#placeOrder{
+    float: left;
+    margin-left: 18%;
+    margin-top: 2%;
+    width: 200px;
+    background-color:aliceblue;
+    border-radius: 19px;;
+    font-size: medium;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+button.remove { 
+    width: 100%;
+    border-radius: 10px;
+    border:none;
+    color: red;
+    font-weight: bolder;
+    font-size: x-large; 
+}

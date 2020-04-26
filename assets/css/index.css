@@ -1,0 +1,97 @@
+body{
+	background-color:#FC4445;
+	/* #fdbd10; */
+	/* #FF5733; */
+	 /* #FC4445; */
+}
+
+
+#burger{
+margin-top: 15%;
+margin-left: 10%;
+}
+
+.mainTitle{
+	width: 100%;
+	text-align: center;
+}
+
+.burgerImage{
+    width:50%;
+	float:left;
+	height:100%;
+
+}
+
+.login{
+    width:25%;
+	float: right;
+	height:100%;
+	border: 1px solid;
+	padding: 5px;
+	text-align: center;
+	border: 5px solid rgb(235, 232, 232);
+	border-radius: 10px;
+	margin-right: 10%;
+	margin-left: 10%;
+	background-color: #fdbd10;
+	/* #0066b2; */
+	/* #DAF7A6 ; */
+	box-shadow: 5px 10px rgba(235, 232, 232, 0.884);
+}
+
+p{
+	font-size: larger;
+	font-style: italic;
+	font-weight: 900;
+	line-height: 25px;
+	color: #5a402f;
+    text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;
+}
+
+#mobNo{
+	margin-top: 10%;
+	font-size: large;
+	height: 50px;
+	border: 2px solid  rgb(235, 232, 232);
+	width: 175px;
+	border-radius: 5px;
+	background: #ffc200;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	outline: none;
+	text-align: center;  
+	color: rgba(87, 104, 134, 0.8);
+	font-weight: 700;
+}
+
+::placeholder{
+	color:#5a402f;
+}
+
+#mobNoSubmit{
+  width: 20%;
+  height: 90%;
+  background-color:#5a402f;
+  color: #def;
+  border-radius: 10px;
+  font-size: large;
+  outline: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+#mobNoSubmit:disabled{
+	opacity: 0.3;
+}
+
+/* For Tablets */
+@media only screen and (min-width: 600px) {
+  
+}
+
+
+/* For Desktops */
+@media only screen and (min-width: 768px) {
+
+}
