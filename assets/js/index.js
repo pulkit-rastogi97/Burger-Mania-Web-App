@@ -27,6 +27,12 @@ function login(){
     window.open("./products.html","_self");
 }
 
+//Clean localstorage for app related variables
+window.onload = function (){
+    this.localStorage.removeItem("cartItems");
+    this.localStorage.removeItem("burgerArray");
+}
+
 //To disable the login button at starting
 $("mobNoSubmit").disabled = true;
 

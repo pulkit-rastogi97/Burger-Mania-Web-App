@@ -2,6 +2,7 @@
 //Initiliazing cartItems
 var cartItems = new Array();
 
+//Calculating price based upon the category
 priceTeller= function(value){
     if(value == "veg")
     {
@@ -15,10 +16,12 @@ priceTeller= function(value){
     }
 }
 
+//Getting cart items in array from local storage
 getCartItems = function(){
     return JSON.parse(localStorage.getItem("cartItems"));
 }
 
+//Calculating total quantity
 getTotalQuantity = function(){
     cartItems = getCartItems();
     var totalQuantity = 0 ;
@@ -29,6 +32,7 @@ getTotalQuantity = function(){
     return totalQuantity;
 }
 
+//Calculating total price based upon the category and quantity
 getTotalPrice = function(){
     cartItems = getCartItems();
     var totalPrice = 0;
@@ -39,6 +43,7 @@ getTotalPrice = function(){
     return totalPrice;
 }
 
+//used for Converting burger category to title case
 function toTitleCase(str) {
     return str.replace(
         /\w\S*/g,
@@ -48,8 +53,43 @@ function toTitleCase(str) {
     );
 }
 
-displayCart=function(){
+//Remove the products from cart
+removeProductsFromCart = function(e){
+    
+
+    alert("")
+     var removeArray = document.getElementsByClassName("remove");
+     for(var i=0;i<removeArray.length;i++)
+     {
+         if(removeArray[i].id==e.target.id)
+         {
+           
+             var newCart = cartItems.splice(i,1);
+             for(var i = 0; i< newCart.length; i++)
+             {
+                 console.log(newCart[i]);
+             }
+             alert("Hiiii Printed");
+             localStorage.removeItem("cartItems");
+             alert("I hope removed");
+             if(cartItems.length == 0)
+             {
+                 window.open("./products.html","_self");
+                 return;
+             }
+             localStorage.setItem("cartItems", JSON.stringify(cartItems))
+         }
+     }
+     location.reload();
+}
+
+//To display the cart Items
+displayCart=function()
+{
+    //Geeting items from local storage
     cartItems = getCartItems();
+
+    //Add the items to table
     for(var i = 0 ; i < cartItems.length; i++)
     {
         var row = document.createElement("tr");
@@ -74,7 +114,7 @@ displayCart=function(){
         var remove = document.createElement("button");
         remove.className="remove";
         remove.innerHTML="X";
-        remove.click=remove;
+        remove.addEventListener('click',removeProductsFromCart);
         data6.appendChild(remove);
         row.appendChild(data1);
         row.appendChild(data2);
@@ -85,12 +125,14 @@ displayCart=function(){
         document.getElementById("tdata").appendChild(row);
     }
 
+    //Total Bill
     var totalBill = document.createElement("p");
     totalBill.textContent = "Total Quantity " + getTotalQuantity() + " & Total Price Rs. " + getTotalPrice();
     document.getElementById("total").appendChild(totalBill);
 
 }
 
+//To make an ajax call to rest api deployed on port 9876 at localhost
 placeOrder = function(){
     totalPrice = getTotalPrice();
     totalQuantity = getTotalQuantity();
@@ -111,10 +153,12 @@ placeOrder = function(){
     xhttp.open('POST',"http://localhost:9876/orders", true);
     xhttp.setRequestHeader("Content-Type","application/json; charset=utf-8");
     xhttp.send(JSON.stringify(reqBody));
-
-
 }
+
+//Start up action
 window.onload= displayCart();
+
+//Place order button action listener
 document.getElementById("placeOrder").addEventListener('click',placeOrder);
 
 
